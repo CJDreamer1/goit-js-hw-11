@@ -5,9 +5,10 @@ import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const refs = {
+export const refs = {
   formEl: document.querySelector('.form'),
   pictureContainer: document.querySelector('.picture-container'),
+  gallery: document.querySelector('.gallery'),
 };
 
 // ===========================================СТВОРЕННЯ РОЗМІТКИ ==================================================
@@ -30,3 +31,24 @@ refs.formEl.addEventListener('submit', e => {
     });
 });
 // ================================================================================================================
+// ========================================== ЗАПУСК БІБЛІОТЕКИ SIMPLELIGHTBOX ======================================
+
+// export const lightbox = new SimpleLightbox('refs.pictureContainer p', {
+//   captionsData: 'alt',
+//   captionDelay: 250,
+// });
+
+// refs.pictureContainer.addEventListener('click', handleModalOpen);
+
+// function handleModalOpen(event) {
+//   event.preventDefault();
+//   if (event.currentTarget === event.target) return;
+
+//   const fullScaleImg = event.target.dataset.source;
+//   const lightbox = new SimpleLightbox('refs.pictureContainer p', {
+//     captionsData: 'alt',
+//     captionDelay: 250,
+//   });
+
+//   gallery.show();
+// }

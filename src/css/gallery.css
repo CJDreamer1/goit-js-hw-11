@@ -59,6 +59,7 @@
   color: #808080;
   border: 1px solid #808080;
   outline: none;
+  background-color: #fff;
 }
 .image-input:hover {
   border: 1px solid #000000;

@@ -1,27 +1,26 @@
 // ========================================= ФУНКЦІЯ РЕНДЕРУ КАРТИНОК =======================================================
+import SimpleLightbox from 'simplelightbox';
+export { refs } from '../main';
 export function pictureTemplate(pictures) {
-  return pictures
+  const markup = pictures
     .map(
-      ({
-        webformatURL,
-        largeImageURL,
-        tags,
-        likes,
-        views,
-        comments,
-        downloads,
-      }) =>
+      data =>
         `<div class="modal">
-          <a class="gallery-link" href="${webformatURL}">
-            <img class="gallery-image" src="${largeImageURL}" data-source="${webformatURL}" alt="${tags}">
+          <a class="gallery-link" href="${data.webformatURL}">
+            <img class="gallery-image" src="${data.largeImageURL}" data-source="${data.webformatURL}" alt="${data.tags}">
           </a>
           <div class="div-info">
-          <p class="p-info"><span class="p-span">Likes</span> ${likes}</p>
-          <p class="p-info"><span class="p-span">Views</span> ${views}</p>
-          <p class="p-info"><span class="p-span">Coments</span> ${comments}</p>
-          <p class="p-info"><span class="p-span">Downloads</span> ${downloads}</p>
+            <p class="p-info"><span class="p-span">Likes</span> ${data.likes}</p>
+            <p class="p-info"><span class="p-span">Views</span> ${data.views}</p>
+            <p class="p-info"><span class="p-span">Coments</span> ${data.comments}</p>
+            <p class="p-info"><span class="p-span">Downloads</span> ${data.downloads}</p>
           </div>
         </div>`
     )
     .join('');
+  const lightbox = new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250,
+  });
+  return markup;
 }
