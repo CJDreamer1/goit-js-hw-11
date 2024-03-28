@@ -9,15 +9,17 @@
 .modal {
   width: 361px;
   height: 200px;
+  border-top: 1px solid #808080;
   border-bottom: 1px solid #808080;
   border-left: 1px solid #808080;
   border-right: 1px solid #808080;
 }
 
-.picture-container {
+.gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  list-style: none;
 }
 .div-info {
   width: 360px;
