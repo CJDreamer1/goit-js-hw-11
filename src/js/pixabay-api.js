@@ -1,5 +1,5 @@
 // ============================================ ФУНКЦІЯ, ЩО СТВОРЮЄ КУР'ЄРА ================================================
-import iziToast from 'izitoast';
+
 export function getPicture(query) {
   const BASE_URL = 'https://pixabay.com/api/';
   const params = new URLSearchParams({
@@ -14,15 +14,7 @@ export function getPicture(query) {
   return fetch(url)
     .then(res => res.json())
     .then(data => {
-      // if (data.total === 0) {
-      //   iziToast.error({
-      //     title: 'Помилка',
-      //     message:
-      //       'Sorry, there are no images matching your search query. Please try again!',
-      //   });
-      // } else {
       return data.hits; // Повертаємо масив об'єктів картинок
-      // }
     })
     .catch(error => {
       console.error('Помилка під час виконання запиту:', error);
