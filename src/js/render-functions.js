@@ -32,4 +32,3 @@ export function pictureTemplate(pictures, formEl) {
     return markup;
   }
 }
-//
