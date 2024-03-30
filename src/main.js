@@ -6,7 +6,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 export const gallery = document.querySelector('.gallery');
 export const formEl = document.querySelector('.form');
-const loader = document.querySelector('.loader');
+export const loader = document.querySelector('.loader');
 
 // ===========================================СТВОРЕННЯ РОЗМІТКИ ==================================================
 
@@ -19,20 +19,14 @@ formEl.addEventListener('submit', e => {
   const query = e.target.elements.query.value; // Отримання значення поля вводу
   getPicture(query)
     .then(pictures => {
-      const markup = pictureTemplate(pictures, formEl); // Передача об'єкта refs
-      gallery.insertAdjacentHTML('beforeend', markup);
+      pictureTemplate(pictures); // Передача об'єкта formEl
     })
     .catch(error => {
       //   console.error('Помилка при отриманні картинок:', error);
-      iziToast
-        .error({
-          title: 'Error',
-          message:
-            'Sorry, there are no images matching your search query. Please try again!',
-        })
-        .finally(() => {
-          // Приховання анімації завантаження після завершення запиту
-          loader.classList.add('loader-hidden');
-        });
+      iziToast.error({
+        title: 'Error',
+        message:
+          'Sorry, there are no images matching your search query. Please try again!',
+      });
     });
 });

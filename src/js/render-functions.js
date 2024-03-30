@@ -1,5 +1,7 @@
 import { gallery } from '../main';
 import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+import { loader } from '../main';
 export function pictureTemplate(pictures, formEl) {
   if (pictures.length === 0) {
     console.log(error);
@@ -20,7 +22,8 @@ export function pictureTemplate(pictures, formEl) {
         </li>`
       )
       .join('');
-
+    gallery.innerHTML = ('beforeend', markup);
+    loader.classList.add('loader-hidden');
     // Виправлення виклику SimpleLightbox
     const lightbox = new SimpleLightbox('.gallery a', {
       captionsData: 'alt',
