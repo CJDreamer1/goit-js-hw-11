@@ -28,5 +28,6 @@ formEl.addEventListener('submit', e => {
         message:
           'Sorry, there are no images matching your search query. Please try again!',
       });
+      loader.classList.add('loader-hidden');
     });
 });
